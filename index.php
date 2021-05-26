@@ -1,8 +1,9 @@
 <?php
 require_once("config.php");
 
-$Sql = new Sql();
 
- $usuarios  = $Sql->select("SELECT * FROM tb_usuarios");
+ $fulano = new Pessoa();
 
- echo json_encode($usuarios);
+ $fulano->CarregamentoPorID(2);
+
+ echo $fulano;

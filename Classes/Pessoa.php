@@ -82,14 +82,28 @@ class Pessoa extends Sql
 
         if(count($result)>0) {
             $row = $result[0];
-            $this->setIdUser($id);
+            $this->setIdUser($row['IdUsuario']);
             $this->setLogin($row['login']);
             $this->setSenha($row['senha']);
             $this->setDataCadastro(new DateTime($row['date']));
+
         }
+
 
     }
 
+    public function insertUser(){
+
+    }
+    public  static function  MostraUsuarios(){
+        $sql = new Sql();
+          $result = $sql->select("SELECT * FROM tb_usuarios ");
+            return  json_encode($result);
+
+
+
+
+    }
     public function __toString(): string
     {
         return json_encode(array(
